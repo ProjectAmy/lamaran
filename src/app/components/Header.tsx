@@ -27,7 +27,7 @@ export default function Header({ onMenuClick }: { onMenuClick: () => void }) {
               className="object-contain"
               priority
             />
-            <h1 className="font-bold text-xl">Dashboard Pelamar</h1>
+            <h1 className="font-bold text-xl">Dashboard Recruitment</h1>
           </div>
         </div>
         {/* Spacer untuk menyeimbangkan layout di mobile */}

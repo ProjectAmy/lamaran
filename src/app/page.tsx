@@ -37,7 +37,7 @@ export default function Home() {
         <button
           type="button"
           className="bg-green-600 text-white rounded-md px-4 py-2 font-bold hover:bg-green-700 transition text-base shadow-md"
-          onClick={() => window.location.href = '/dash'}
+          onClick={() => window.location.href = '/dashboard'}
         >
           Login
         </button>
