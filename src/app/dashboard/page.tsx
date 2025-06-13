@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 export default function DashboardPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -44,6 +45,7 @@ export default function DashboardPage() {
                 </div>
               </div>
               {/* Card Info Lowongan */}
+
               <div className="mt-12">
                 <h3 className="text-lg font-bold mb-4">Lowongan Tersedia</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -70,25 +72,27 @@ export default function DashboardPage() {
                       status: 'Dibuka',
                     },
                   ].map((job, idx) => (
-                    <div key={idx} className="bg-white rounded-lg shadow-md p-5 flex gap-4 items-center border border-gray-100">
-                      <img src={job.img} alt={job.nama} className="w-16 h-16 rounded-full object-cover border-2 border-green-400" />
-                      <div className="flex-1">
-                        <div className="font-semibold text-gray-800 text-base mb-1">{job.nama}</div>
-                        {job.status === 'Dibuka' ? (
-                          <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Masih Dibuka</span>
-                        ) : (
-                          <span className="inline-block bg-gray-200 text-gray-500 px-3 py-1 rounded-full text-xs font-bold">Sudah Tutup</span>
-                        )}
+                    <Link href="/lowongan" key={idx} className="block group focus:outline-none">
+                      <div className="bg-white rounded-lg shadow-md p-5 flex gap-4 items-center border border-gray-100 transition hover:shadow-lg cursor-pointer">
+                        <img src={job.img} alt={job.nama} className="w-16 h-16 rounded-full object-cover border-2 border-green-400" />
+                        <div className="flex-1">
+                          <div className="font-semibold text-gray-800 text-base mb-1 group-hover:text-green-700">{job.nama}</div>
+                          {job.status === 'Dibuka' ? (
+                            <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Masih Dibuka</span>
+                          ) : (
+                            <span className="inline-block bg-gray-200 text-gray-500 px-3 py-1 rounded-full text-xs font-bold">Sudah Tutup</span>
+                          )}
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
             </div>
             {/* Tombol + Lamaran di bawah map, rata kiri sejajar dengan icon Berkas */}
-            <div className="mb-12 flex justify-center pt-8">
+            {/* <div className="mb-12 flex justify-center pt-8">
               <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded shadow transition-all text-lg">+ Lamaran</button>
-            </div>
+            </div> */}
             {/* Tabel Daftar Lamaran */}
             <div className="overflow-x-auto">
               <table className="min-w-full bg-white rounded shadow text-sm">
